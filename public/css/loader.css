@@ -1,0 +1,44 @@
+.load-wait{
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: rgba(151, 151, 151, 0.5);
+}
+
+.loader
+{
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    filter: blur(1px);
+}
+.loader span
+{
+    width: 2vw;
+    height: 2vw;
+    /*height: calc(2vw * var(--i));*/
+    margin: 0 1vw;
+    border-radius: 50%;
+    box-shadow: inset -.4vw -.4vw .4vw rgba(185, 162, 181, 0.63),
+                inset .4vw .4vw .4vw rgba(0,0,0,.1);
+    animation: animate 1s linear infinite;
+    animation-delay: calc(0.08s * var(--i));
+}
+@keyframes animate
+{
+    0%
+    {
+        box-shadow: -.5vw -.5vw 1vw rgba(185, 162, 181, 0.63),
+        .5vw .5vw 1vw rgba(0,0,0,.1);
+    }
+    100%
+    {
+        box-shadow: inset -.4vw -.4vw .4vw rgba(185, 162, 181, 0.63),
+        inset .4vw .4vw .4vw rgba(0,0,0,.1);
+    }
+}

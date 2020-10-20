@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Points Of Progress (POP)</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./public/css/log.css">
+    <link rel="stylesheet" href="./public/css/loader.css">
+
+</head>
+<body>
+    <div class="log-container">
+        <div class="background-color"></div>
+        <div class="background-image"></div>
+        <div class="log-itens">
+            <header>
+                <h1>POINTS OF PROGRESS</h1>
+            </header>
+            <aside>
+                <h2>Preencha Os Dados:</h2>
+                
+                <hr>
+
+                <label for="nick">Nickname:</label>
+                <input type="text" id="name" placeholder="Your Nickname">
+                <footer>
+                    <button id="apagar" onclick="ClearFields()">Cancelar</button>
+                    <button id="enviar" onclick="SendSettings()">Enviar</button>
+                </footer>
+            </aside>
+        </div>
+    </div>
+    <div class="load-wait" style="display: none;">
+        <div class="loader">
+            <span style="--i:1"></span>
+            <span style="--i:2;"></span>
+            <span style="--i:3;"></span>
+            <span style="--i:4;"></span>
+            <span style="--i:5;"></span>
+            <span style="--i:6;"></span>
+            <span style="--i:7;"></span>
+        </div>
+    </div>
+
+    <script src="./public/javascript/logSystem.js"></script>
+
+</body>
+</html>
