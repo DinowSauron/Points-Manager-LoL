@@ -1,0 +1,94 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+
+.content #header{
+    padding: 30px;
+    height: 400px;
+    
+    display: block;
+    background: url(../pictures/background-champions.jpg) no-repeat 100% 100%;
+    background-size: auto 100%;
+    z-index: 0;
+}
+.content #header h2{
+    font-family: 'Vollkorn', serif;
+    color: #e6b045;
+    text-transform: uppercase;
+}
+
+
+
+.content .header-box{
+    position: relative;
+    top: 50px;
+    background-color: rgba(70, 70, 70, 0.74);
+    border: 2px solid #b48e41;
+    border-radius: 20px;
+    width: 400px;
+
+    padding: 15px;
+}
+.content .header-box .buttons{
+    display: flex;
+    justify-content: space-between;
+}
+.content .header-box .buttons div{
+    display: flex;
+    text-align: center;
+    width: 40%;
+    
+    border: 2px solid #b48e41;
+    background-color: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.content .header-box button{
+    width: 200px;
+    height: 40px;
+    background-color: transparent;
+    border: none;
+    border: 2px solid #b48e41;
+    border-radius: 10px;
+    
+    font-family: 'Vollkorn', serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+
+    outline: none;
+    transition: 300ms;
+    cursor: pointer;
+}
+.content .header-box button#victory{
+    background-color: #12e60a;
+}
+.content .header-box button#defeat{
+    background-color: #e60a0a;
+}
+.content .header-box button:active{
+    background-color: #fff !important;
+    transition: 40ms;
+}
+.content .header-box button:hover{
+    border-color: #fff ;
+}
+.content .header-box input{
+    display: block;
+    right: 0;
+    width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    color: #e6b045;
+    text-transform: uppercase;
+    -moz-appearance: textfield;
+    border: none;
+    outline: none;
+}

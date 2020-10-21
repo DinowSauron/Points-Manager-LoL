@@ -6,9 +6,13 @@
     <title>Points Of Progress (POP)</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="./public/pictures/lol-icon1.png" rel="icon">
 
     <link rel="stylesheet" href="./public/css/log.css">
     <link rel="stylesheet" href="./public/css/loader.css">
+    <link rel="stylesheet" href="./public/css/topbar.css">
+    <link rel="stylesheet" href="./public/css/header.css">
+    <link rel="stylesheet" href="./public/css/main.css">
 
 </head>
 <body>
@@ -26,6 +30,21 @@
 
                 <label for="nick">Nickname:</label>
                 <input type="text" id="name" placeholder="Your Nickname">
+
+                <div class="lateral">
+                <label for="nick">Emblemas:
+                <input type="number" id="actual-points" placeholder="Your Emblems" value="0"></label>
+                <label for="nick">Objetivo:
+                <input type="number" id="objective-points" placeholder="Your objective"></label>
+                </div>
+                
+                <hr>
+                <label for="nick">
+                <h5>Inicio:</h2>
+                <input type="date" id="date-start" placeholder="Event Start Day">
+                <h5>Fim:</h2>
+                <input type="date" id="date-end" placeholder="Event Duration (Dias)"></label>
+
                 <footer>
                     <button id="apagar" onclick="ClearFields()">Cancelar</button>
                     <button id="enviar" onclick="SendSettings()">Enviar</button>
@@ -44,6 +63,50 @@
             <span style="--i:7;"></span>
         </div>
     </div>
+
+
+    <div class="main-container" style="display: none;">
+        <header>
+            <section>
+                <img src="./public/pictures/lol-logo.png" alt="League of Legends" id="logo">
+                <h2>POINTS OF PROGRESS</h2>
+                <p>Gerenciador de emblemas de temporada do jogo League Of Legends</p>
+            </section>
+
+            <img src="./public/pictures/logUser.png" alt="Sua Conta" id="account">
+        </header>
+        <section id="options">
+            <span id="box-name">YouName</span>
+            <span id="box-points">YoursPoints</span>
+            <button id="box-delete">Deletar Conta</button>
+        </section>
+        <div class="content">
+            <section id="header">
+                <div class="header-box">
+                    <h2>Insira Seu Resultado:</h2>
+                    <div class="buttons">
+                        <div class="victory-btn">
+                            <button id="victory"> Vitoria
+                            </button>
+                            <input type="number" placeholder="Pt">
+                        </div>
+                        <div class="defeat-btn">
+                            <button id="defeat"> Derrota
+                            </button>
+                            <input type="number" placeholder="Pt">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <main>
+                <h3>Emblemas por Dia</h3>
+                <hr>
+                <iframe src="./table.html" frameborder="0" name="janela" id="framespec"></iframe>
+            </main>
+
+        </div>
+    </div>
+
 
     <script src="./public/javascript/logSystem.js"></script>
 

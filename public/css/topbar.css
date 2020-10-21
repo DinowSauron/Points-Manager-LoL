@@ -1,0 +1,95 @@
+
+.main-container header{
+    position: fixed;
+    top: 0;
+    background: #222;
+    width: 100%;
+    height: 10vh;
+    min-height: 70px;
+
+    border-bottom: 2px solid #b48e41;
+
+    display: flex;
+    object-fit: cover;
+    padding: 6px;
+    justify-content: space-between;
+    direction: ltr;
+    align-items: center;
+    z-index: 20;
+}
+.main-container section{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    /*background: #fff;*/
+}
+.main-container header h2{
+    font: 800 30px/1 'Vollkorn', serif;
+    color: #b48e41;
+    min-width: 350px;
+}
+.main-container header p{
+    font: 400 10px/1 'Vollkorn', serif;
+    color: #fff;
+    min-width: 200px;
+}
+.main-container header img{
+    height: 100%;
+    margin-right: 35px;
+}
+img#account{
+    position: relative;
+    display: flex;
+    align-items: center;
+    right: 0px;
+
+    transform: scale(.5);
+    background: #fff;
+    border: 2px solid #b48e41;
+    border-radius: 50%;
+
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+    transition: 200ms;
+}
+img#account:active{
+    background-color: #000;
+    transition: 20ms;
+}
+
+.main-container #options{
+    display: none !important; /*  bloqueie com block este display pelo java */
+
+    position: absolute;
+    transform-origin: top;
+    padding: 12px;
+    right: 0;
+    margin-right: 6px;
+    
+    display: block;
+    top: clamp(75px, 11vh, 800px);
+    border-radius: 0 0 15px 15px;
+    width: 300px;
+    height: 135px;
+
+    background: rgb(41, 41, 41);
+}
+.main-container #options span{
+    display: block;
+    margin-bottom: 10px;
+    width: 50%;
+    background-color: #fff;
+    padding:5px;
+    border-radius: 8px;
+}
+.main-container #options button{
+    width: 100%;
+    height: 30px;
+
+    font: 800 20px/1 'Vollkorn', serif;
+    background-color: #f00;
+    border: 2px solid #b48e41;
+    border-radius: 8px;
+    color: #b48e41;
+}
