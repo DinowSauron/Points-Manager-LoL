@@ -1,4 +1,5 @@
 var name = localStorage.getItem("user-name") || '';
+
 console.log(name)
 
 if(name){
@@ -48,22 +49,24 @@ function SendSettings(){
     }
     
     GetDates();
+    GetEmblems();
 
     setTimeout(() =>{
         localStorage.setItem("user-name", inputElement.value)
         RemoveLogin();
+        Start.start();
     }, (Math.random() * 4000)+ 1500);
 }
 function GetEmblems(){
     var emblemsActual = document.querySelector("#actual-points");
     var emblemsObjective = document.querySelector("#objective-points");
-    if(!loadElement.value){
+    if(!emblemsActual.value){
         ReturnEvent("Coloque seu Objetivo!");
         return;
     }
     
-    localStorage.setItem("emblems-actual", dateStart);
-    localStorage.setItem("emblems-objective", dateEnd);
+    localStorage.setItem("emblems-start", emblemsActual.value);
+    localStorage.setItem("emblems-objective", emblemsObjective.value);
 }
 function GetDates(){
     var dateStart = document.querySelector("#date-start");
@@ -73,11 +76,11 @@ function GetDates(){
         return;
     }
 
+    localStorage.setItem("date-start", dateStart.value)
+    localStorage.setItem("date-end", dateEnd.value)
 
     dateStart = new Date(dateStart.value);
     dateEnd = new Date(dateEnd.value);
-    localStorage.setItem("date-start", dateStart)
-    localStorage.setItem("date-end", dateEnd)
     
 
     var duration = dateEnd.getTime() - dateStart.getTime();

@@ -86,12 +86,12 @@
                     <h2>Insira Seu Resultado:</h2>
                     <div class="buttons">
                         <div class="victory-btn">
-                            <button id="victory"> Vitoria
+                            <button id="victory" onclick="ChangeTable(event,'','v')"> Vitoria
                             </button>
                             <input type="number" placeholder="Pt">
                         </div>
                         <div class="defeat-btn">
-                            <button id="defeat"> Derrota
+                            <button id="defeat" onclick="ChangeTable(event,'','d')"> Derrota
                             </button>
                             <input type="number" placeholder="Pt">
                         </div>
@@ -109,6 +109,7 @@
 
 
     <script src="./public/javascript/logSystem.js"></script>
+    <script src="./public/javascript/main.js"></script>
 
 </body>
 </html>
