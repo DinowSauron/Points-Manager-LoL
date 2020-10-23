@@ -28,10 +28,26 @@ Nesta pagina temos o inicio do layout, ele ainda está em desenvolvimente e em b
 <img src="https://user-images.githubusercontent.com/68889180/96666425-7c039e00-132d-11eb-8ca4-9e98cb70d2db.png" width=800>
 </p>
 
+### Outras informações
+
+Nesta outra secção da pagina de informações teremos detalhes sobre a situação atual, ele precisam ser atualizados quando adicionado um novo valor, (Em progresso)
+
+<p>
+<img src="https://user-images.githubusercontent.com/68889180/96949704-ec8df480-14be-11eb-826a-72faf291a175.png" width=800>
+</p>
+
 ---
+
 # Conclusões
 
+## Tecnologias Utilizadas:
+* Visual Studio code
+* HMTL5
+* CSS3
+* Javascript (puro)
 
 ## Aprendizado
 * Desenvolvimento web front-end, principalmente em css e html.
 * Conceitos sobre formatação e manipulação de data em javascript.
+* Responsividade, em ultrawide e widescreens.
+* Salvamento de dados por localstorage.
