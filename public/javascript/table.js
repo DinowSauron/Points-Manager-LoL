@@ -40,6 +40,7 @@ function addDayColum(day, valuesObj){
 }
 
 function addValue({id, tipo, pts}){
+    //id = "20-10-2020"
     var tableElement = document.getElementById(id);
     var sectionElement = document.createElement("section");
     var spanElement = document.createElement("span");
@@ -76,7 +77,7 @@ function addValue({id, tipo, pts}){
     // console.log(GetEmblems() + Number(pts))
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
     totalPoints += Number(pts);
-    var media = CalculateMedia();
+    var media = CalculateMedia(id);
 
     inputTable.value = "~" + media + " | " + (totalPoints);
     spanElement.appendChild(spanText);
@@ -101,10 +102,15 @@ function removeValue(indexSector, indexValue){
 function GetEmblems(){
     return Number(localStorage.getItem("emblems-actual"));
 }
-function CalculateMedia(){
+function CalculateMedia(id){
     var days = Number(localStorage.getItem("date-duration"));
+    var startDay = new Date(localStorage.getItem("date-start"));
+    var today = new Date(id.split("-")[2] + "-" + (id.split("-")[1]) + "-" + id.split("-")[0]);
+
+    lapsedDays = parseInt((today.getTime() - startDay.getTime()) / (1000 * 3600 * 24)) + 1
+    // console.log(lapsedDays);
     return parseInt((Number(localStorage.getItem("emblems-objective")) - 
-    (Number(localStorage.getItem("emblems-actual")))) / days)
+    (Number(localStorage.getItem("emblems-actual")))) / (days - lapsedDays))
 }
 function GetTodayBr(){
     const today =  new Date();
@@ -130,32 +136,34 @@ function GenerateTable(){
 
 
     // console.log(daySettings.media);
+    
+    var lapsedCount = 0;
     for (var i = 0; i < days; i++) {
-        var outroDia = new Date(ano, mes, dia + i);
-        
+        var otherDay = new Date(ano, mes - 1, dia + i);
+        var thisDay = new Date();
+
+        lapsedDays = parseInt((otherDay.getTime() - thisDay.getTime()) / (1000 * 3600 * 24))
+        lapsedCount = lapsedDays <= 0 ? lapsedCount += 1 : lapsedCount;
+
+        // console.log(otherDay)
         daySettings = {
             total: 0,
-            media: parseInt((Number(localStorage.getItem("emblems-objective")) - Number(localStorage.getItem("emblems-actual"))) / days),
-            values: JSON.parse(localStorage.getItem(dateToString(outroDia) + "-val"))
+            media: parseInt((Number(localStorage.getItem("emblems-objective")) - Number(localStorage.getItem("emblems-actual"))) / (days - lapsedCount)),
+            values: JSON.parse(localStorage.getItem(dateToString(otherDay) + "-val"))
         }
-        addDayColum(dateToString(outroDia),daySettings);
+        addDayColum(dateToString(otherDay),daySettings);
         // localStorage.removeItem(dateToString(outroDia) + '-val');
     }
     function dateToString(d) {
-        return [ d.getDate(), d.getMonth(), d.getFullYear()].map(d => d > 9 ? d : '0' + d).join('-');
+        return [ d.getDate(), d.getMonth() + 1, d.getFullYear()].map(d => d > 9 ? d : '0' + d).join('-');
     }
 
     
 
-    //  addValue(stateObj);
-    //  addValue(stateObj);
-    //  addValue(stateObj);
-    //  addValue(stateObj2);
-    //  addValue(stateObj2);
     // localStorage.removeItem('21-10-2020' + '-val');
     // removeValue(0,3);
 }
 
-
-
-GenerateTable();
+var name = localStorage.getItem("user-name") || '';
+if(name)
+    GenerateTable();

@@ -9,8 +9,29 @@ function SetDefaultPoints(){
     defeats.forEach(defeat => {
         defeat.value = Number(localStorage.getItem("defeat-pts"))
     })
+    var consumes = document.querySelectorAll(".consume-btn input");
+    consumes.forEach(consume => {
+        consume.value = Number(localStorage.getItem("consume-pts"))
+    })
+
+    const d =  new Date();
+    var dateElement = document.querySelector("#date-inject input");
+    dateElement.setAttribute("value", `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
+    dateElement.setAttribute("min", localStorage.getItem("date-start"));
+    dateElement.setAttribute("max", localStorage.getItem("date-end"));
 }
 
+
+function InjectValue(element, type){
+    var idElement = document.querySelector("#date-inject input").value;
+    if(!idElement){
+        alert("Insira uma data para a injeção")
+        return;
+    }
+    idElement = idElement.split("-");
+    idElement = `${idElement[2]}-${idElement[1]}-${idElement[0]}` 
+    ChangeTable(element, idElement, type);
+}
 
 function ChangeTable(element,id, type){
     var ptns = element.target.parentElement.querySelector("input").value;
@@ -18,6 +39,8 @@ function ChangeTable(element,id, type){
         localStorage.setItem("victory-pts", ptns)
     if(type == "d")
         localStorage.setItem("defeat-pts", ptns)
+    if(type == "c")
+        localStorage.setItem("consume-pts", ptns)
     
 
     if(!id){
@@ -35,7 +58,16 @@ function ChangeTable(element,id, type){
         total: 1,
         media: 4
     }
-    document.getElementById("framespec").contentWindow.addValue(stateObj);
+    var frameElement = document.getElementById("framespec");
+
+    //pegar uma função do script que está no iframe
+    frameElement.contentWindow.addValue(stateObj);
+
+    //dar reload no iframe para recarregar os valores padrões
+    frameElement.contentDocument.location.reload(true);
+
+    //dar reload nas informações
+    UpdateInfo();
 }
 
 var dropped = false;

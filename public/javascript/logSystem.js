@@ -54,7 +54,7 @@ function SendSettings(){
     setTimeout(() =>{
         localStorage.setItem("user-name", inputElement.value)
         RemoveLogin();
-        Start.start();
+        document.location.assign("./index.html");
     }, (Math.random() * 4000)+ 1500);
 }
 function GetEmblems(){

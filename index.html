@@ -73,12 +73,12 @@
                 <p>Gerenciador de emblemas de temporada do jogo League Of Legends</p>
             </section>
 
-            <img src="./public/pictures/logUser.png" alt="Sua Conta" id="account">
+            <img src="./public/pictures/logUser.png" alt="Sua Conta" id="account" onclick="ToogleOptions()">
         </header>
         <section id="options">
-            <span id="box-name">YouName</span>
+            <span id="box-name">YourName</span>
             <span id="box-points">YoursPoints</span>
-            <button id="box-delete">Deletar Conta</button>
+            <button id="box-delete" onclick="DeleteAll()">Deletar Conta</button>
         </section>
         <div class="content">
             <section id="header">
@@ -105,6 +105,7 @@
                 <button class="more-frame" onclick="FrameButton()">
                     <img src="./public/pictures/arrow-dwn.png" alt="">
                 </button>
+                <h3>Informações</h3>
                 <hr>
                 <section class="more-info">
                     <div class="group">
@@ -115,7 +116,7 @@
                         <label id="pt-objective">Objetivo:
                             <input type="text" readonly>
                         </label>
-                        <label id="pt-objective">Dias Totais:
+                        <label id="tot-days">Dias Totais:
                             <input type="text" readonly>
                         </label>
                     </div>
@@ -127,17 +128,42 @@
                         <label id="media-actual">Media Atual:
                             <input type="text" readonly>
                         </label>
-                        <label id="defeat-need">Dias Restantes:
+                        <label id="days-need">Dias Restantes:
                             <input type="text" readonly>
                         </label>
-                        <label id="vicotry-need">Vitorias Necessárias:
+                        <label id="victory-need">Vitorias Por Dia:
                             <input type="text" readonly>
                         </label>
-                        <label id="defeat-need">Derrotas Necessárias:
+                        <label id="defeat-need">Derrotas Por Dia:
                             <input type="text" readonly>
                         </label>
                     </div>
                     <div class="group">
+                        <h1>Injetar Valores</h1>
+                        <label id="date-inject">Data da Injeção
+                            <input type="date" id="data-inject">
+                        </label>
+                        <div class="header-box">
+                            <div class="buttons">
+                                <div class="victory-btn">
+                                    <button id="victory" onclick="InjectValue(event, 'v')"> Vitoria
+                                    </button>
+                                    <input type="number" placeholder="Pt">
+                                </div>
+                                <div class="defeat-btn">
+                                    <button id="defeat" onclick="InjectValue(event, 'd')"> Derrota
+                                    </button>
+                                    <input type="number" placeholder="Pt">
+                                </div>
+                                <div class="consume-btn">
+                                    <button id="consume" onclick="InjectValue(event, 'c')"> Consumir
+                                    </button>
+                                    <input type="number" placeholder="Pts">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="group">
                         <h1>Outros</h1>
                         <label id="">Emblemas Atuais:
                             <input type="text" readonly>
@@ -154,34 +180,19 @@
                         <label id="">Derrotas Necessárias:
                             <input type="text" readonly>
                         </label>
-                    </div>
-                    <div class="group">
-                        <h1>Outros</h1>
-                        <label id="">Emblemas Atuais:
-                            <input type="text" readonly>
-                        </label>
-                        <label id="">Media Atual:
-                            <input type="text" readonly>
-                        </label>
-                        <label id="">Vitorias Necessárias:
-                            <input type="text" readonly>
-                        </label>
-                        <label id="">Derrotas Necessárias:
-                            <input type="text" readonly>
-                        </label>
-                        <label id="">Derrotas Necessárias:
-                            <input type="text" readonly>
-                        </label>
-                    </div>
+                    </div> -->
                 </section>
+                <hr>
             </main>
-
         </div>
+        <footer> &copy; Luiz Claudio 2020 </footer>
     </div>
 
 
     <script src="./public/javascript/logSystem.js"></script>
     <script src="./public/javascript/main.js"></script>
+    <script src="./public/javascript/topbar.js"></script>
+    <script src="./public/javascript/info.js"></script>
 
 </body>
 </html>

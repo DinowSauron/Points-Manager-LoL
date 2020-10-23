@@ -35,7 +35,7 @@
 }
 .main-container header img{
     height: 100%;
-    margin-right: 35px;
+    margin-right: 0px;
 }
 img#account{
     position: relative;
@@ -59,10 +59,11 @@ img#account:active{
 }
 
 .main-container #options{
-    display: none !important; /*  bloqueie com block este display pelo java */
+    /*display: none !important; /*  bloqueie com block este display pelo java */
 
-    position: absolute;
-    transform-origin: top;
+    position: fixed;
+    transform-origin: right;
+    border: 2px solid #b48e41;
     padding: 12px;
     right: 0;
     margin-right: 6px;
@@ -74,6 +75,13 @@ img#account:active{
     height: 135px;
 
     background: rgb(41, 41, 41);
+    transition: 300ms;
+    transform: scale(0);
+    z-index: 80;
+}
+.main-container #options.active{
+    /*display: block !important;*/
+    transform: scale(1);
 }
 .main-container #options span{
     display: block;
@@ -90,6 +98,11 @@ img#account:active{
     font: 800 20px/1 'Vollkorn', serif;
     background-color: #f00;
     border: 2px solid #b48e41;
+    outline: none;
     border-radius: 8px;
+    cursor: pointer;
     color: #b48e41;
+}
+.main-container #options button:active{
+    background-color: #fff;
 }
