@@ -46,6 +46,7 @@ function addValue({id, tipo, pts}){
     var spanElement = document.createElement("span");
     var sectionText = document.createTextNode(tipo.toUpperCase());
     var spanText = document.createTextNode(" " + pts);
+    var imgElement = document.createElement("img");
 
     var valuesTable = tableElement.querySelectorAll('section');
 
@@ -72,16 +73,19 @@ function addValue({id, tipo, pts}){
     // console.log(localStorage.getItem(id + "-val"))
     
 
-    localStorage.setItem("emblems-start", 500);
-    // localStorage.setItem("emblems-actual", 500);
-    // console.log(GetEmblems() + Number(pts))
+    
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
     totalPoints += Number(pts);
     var media = CalculateMedia(id);
 
     inputTable.value = "~" + media + " | " + (totalPoints);
     spanElement.appendChild(spanText);
+    imgElement.setAttribute("src", "./public/pictures/cross.png")
+    imgElement.setAttribute("class", "delete-value")
+    imgElement.setAttribute("onclick", `removeValue("${id}", ${(valuesSave.value.length - 1)})`)
     sectionElement.setAttribute('class', tipo);
+    sectionElement.appendChild(imgElement);
+
     stateDay = totalPoints < media ? "lower" : "highter";
     inputTable.setAttribute("class", stateDay)
     sectionElement.appendChild(sectionText);
@@ -90,10 +94,11 @@ function addValue({id, tipo, pts}){
     tableElement.appendChild(sectionElement);
 }
 
-function removeValue(indexSector, indexValue){
-    var tablesElement = document.querySelectorAll("main .container .sector");
-    var valueElement = tablesElement[indexSector].querySelectorAll("section");
-    valueElement[indexValue].remove();
+function removeValue(id, indexValue){
+    var valuesSave = {value: JSON.parse(localStorage.getItem(id + "-val"))};
+    valuesSave.value.splice(indexValue, 1);
+    localStorage.setItem(id + '-val', JSON.stringify(valuesSave.value));
+    document.location.reload(true);
 }
 
 
