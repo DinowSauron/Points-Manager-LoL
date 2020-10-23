@@ -15,6 +15,7 @@ iframe{
     border: 2px solid #b48e41;
     overflow-x: scroll;
     overflow-y: hidden;
+    transition: 800ms
 }
 
 .content{
@@ -45,4 +46,76 @@ main h3{
 main hr{
     margin-bottom: 15px;
     border-color: #e6b045;
+}
+
+.content .more-frame{
+    width: 40px;
+    height: 20px;
+
+    border: 2px solid #b48e41;
+    transition: background-color 300ms;
+    outline: none;
+    
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 22px;
+    right: 22px;
+    top: 383px;
+}
+.content .more-frame:hover{
+    background-color: #ddd;
+}
+.content .more-frame img{
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
+
+
+.content .more-info{
+    position: relative;
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+}
+.content .more-info .group{
+    display: block;
+    border: 2px solid #b48e41;
+    border-radius: 12px;
+    padding: 10px;
+
+    
+    font-family: 'Vollkorn', serif;
+    color: #e6b045;
+    margin: 10px;
+    min-width: 280px;
+    min-height: fit-content;
+    background-color: #5555;
+}
+.content .more-info .group label{
+    position: relative;
+    border: 2px solid #b48e41;
+    padding: 12px 5px 12px 5px;
+    display: block;
+    cursor: pointer;
+}
+.content .more-info .group label input{
+    position: absolute;
+    outline: none;
+    height: 80%;
+    top: 5px;
+    right: 5px;
+    width: 50px;
+    background-color: #ffffff;
+    border: 2px solid #b48e41;
+    transition: transform 200ms;
+    color: #b48e41;
+    cursor: pointer;
+}
+.content .more-info .group label input:hover{
+    transform: scale(1.3);
+    z-index: 50;
 }

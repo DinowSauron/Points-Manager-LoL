@@ -15,7 +15,11 @@ function addDayColum(day, valuesObj){
     headElement.appendChild(linkText);
     tableElement.setAttribute('class', 'sector');
     tableElement.setAttribute('id', day);
-    inpElement.setAttribute("value", "~" + valuesObj.media + " | " + valuesObj.total);
+    dayUs = Number(day.split("-")[2] + day.split("-")[1] + day.split("-")[0])
+        if(dayUs <= GetTodayUs().split("-").join(""))
+    inpElement.setAttribute("class", "lower")
+    inpElement.setAttribute("readonly","true")
+    inpElement.setAttribute("value", "~" + valuesObj.media);
     tableElement.appendChild(inpElement);
 
     //add to html
@@ -26,7 +30,6 @@ function addDayColum(day, valuesObj){
     localStorage.removeItem(day + '-val');
     if(valuesObj.values)
     valuesObj.values.forEach(obj => {
-        
         value = {
             id: day,
             tipo: obj.type,
@@ -37,22 +40,20 @@ function addDayColum(day, valuesObj){
 }
 
 function addValue({id, tipo, pts}){
-    var tablesElement = document.getElementById(id);
+    var tableElement = document.getElementById(id);
     var sectionElement = document.createElement("section");
     var spanElement = document.createElement("span");
     var sectionText = document.createTextNode(tipo.toUpperCase());
     var spanText = document.createTextNode(" " + pts);
 
-    var valuesTable = tablesElement.querySelectorAll('section');
+    var valuesTable = tableElement.querySelectorAll('section');
 
     //pega os pontos totais do dia
     var totalPoints = 0;
     valuesTable.forEach(value => {
         totalPoints += Number(value.querySelector("span").innerHTML)
     })
-    var inputTable = tablesElement.querySelector('input');
-
-
+    var inputTable = tableElement.querySelector('input');
 
 
     // localStorage.removeItem(id + '-val');
@@ -74,15 +75,18 @@ function addValue({id, tipo, pts}){
     // localStorage.setItem("emblems-actual", 500);
     // console.log(GetEmblems() + Number(pts))
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
+    totalPoints += Number(pts);
     var media = CalculateMedia();
 
-    inputTable.value = "~" + media + " | " + (totalPoints + Number(pts));
+    inputTable.value = "~" + media + " | " + (totalPoints);
     spanElement.appendChild(spanText);
     sectionElement.setAttribute('class', tipo);
+    stateDay = totalPoints < media ? "lower" : "highter";
+    inputTable.setAttribute("class", stateDay)
     sectionElement.appendChild(sectionText);
     sectionElement.appendChild(spanElement);
 
-    tablesElement.appendChild(sectionElement);
+    tableElement.appendChild(sectionElement);
 }
 
 function removeValue(indexSector, indexValue){

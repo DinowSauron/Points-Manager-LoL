@@ -37,3 +37,18 @@ function ChangeTable(element,id, type){
     }
     document.getElementById("framespec").contentWindow.addValue(stateObj);
 }
+
+var dropped = false;
+function FrameButton(){
+    var frameElement = document.querySelector("#framespec");
+    var buttonElement = document.querySelector(".more-frame");
+
+    dropped = !dropped;
+    if(dropped){
+        frameElement.style.height = "680px";
+        buttonElement.style.transform = "Rotate(180deg)";
+    }else{
+        frameElement.style.height = "320px";
+        buttonElement.style.transform = "Rotate(0deg)";
+    }
+}

@@ -17,6 +17,7 @@ header span{
     border-right: 2px solid #b48e41;
     border-bottom: 2px solid #b48e41;
     white-space: nowrap;
+    cursor: default;
 }
 .container{
     display: flex;
@@ -28,6 +29,7 @@ header span{
     max-width: 74px;
     margin: 5px;
     border: 2px solid #b48e41;
+    cursor: default;
 }
 
 .container .sector section{
@@ -51,6 +53,7 @@ header span{
     border-bottom: 2px solid #b48e41;
     font-weight: 700;
     text-align: center;
+    cursor: default;
 }
 .container .sector .v{
     background-color: rgb(106, 235, 127);
@@ -60,4 +63,11 @@ header span{
 }
 .container .sector .c{
     background-color: rgb(53, 112, 221);
+}
+
+.container .sector input.lower{
+    background-color: #ff6060;
+}
+.container .sector input.highter{
+    background-color: #60ff75;
 }
