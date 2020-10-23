@@ -17,7 +17,7 @@ Nesta pagina temos um sistema de login, que pega as informações basicas, como 
 
 
 <p>
-<img src="https://user-images.githubusercontent.com/68889180/96666112-d819f280-132c-11eb-8268-c3d9ce4da716.png" width=800>
+<img src="https://user-images.githubusercontent.com/68889180/97035884-606ee200-153d-11eb-9ecd-b39d1f6a9970.png.png" width=800>
 </p>
 
 ### Pagina Das Informações
@@ -28,10 +28,48 @@ Nesta pagina temos o inicio do layout, ele ainda está em desenvolvimente e em b
 <img src="https://user-images.githubusercontent.com/68889180/96666425-7c039e00-132d-11eb-8ca4-9e98cb70d2db.png" width=800>
 </p>
 
+### Outras informações
+
+Nesta outra secção da pagina de informações teremos detalhes sobre a situação atual, podendo se expandir no futuro, este local se obtem uma informação mais detalhada e ajustes mais precisos, como a injeção de dados em dias especificos.
+
+<p>
+<img src="https://user-images.githubusercontent.com/68889180/97035884-606ee200-153d-11eb-9ecd-b39d1f6a9970.png" width=800>
+</p>
+
 ---
+
 # Conclusões
 
+## Tecnologias Utilizadas:
+* Visual Studio code
+* HMTL5
+* CSS3
+* Javascript (puro)
 
 ## Aprendizado
 * Desenvolvimento web front-end, principalmente em css e html.
 * Conceitos sobre formatação e manipulação de data em javascript.
+* Responsividade, em ultrawide e widescreens.
+* Salvamento de dados por localstorage.
+
+---
+
+# Anotações
+Este projeto demorou 4 dias para começar a ser utilizavel, e com ele tive muitos aprendizados, ele ficou melhor do que eu esperava, pois eu estou estudando esta area de front-end faz 3-4 semanas.
+Outro desafio deste projeto é que eu pretendia colocar no github-pages, então não teria uma forma de trabalhar com back-end, por este motivo optei por utilizar o localstorage ao invez de um banco de dados.
+Também optei por realizar tudo, desde o login até a visualização, em apénas uma pagina, e o motivo foi para poder fazer um fluxo mais continuo...
+Uma das maiores dificuldades encontradas foi em realizar o posicionamento dos itens por css, a programação é um pouco complexa, porém já estou acostumado com isso.
+
+
+### Variaveis Salvas
+* user-name
+* date-start
+* date-end
+* date-duration
+* emblems-start
+* emblems-objective
+* emblems-actual
+* consume-pts
+* victory-pts
+* defeat-pts
+* (ID)-val
