@@ -73,7 +73,7 @@ function addValue({id, tipo, pts}){
     // console.log(localStorage.getItem(id + "-val"))
     
 
-    
+
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
     totalPoints += Number(pts);
     var media = CalculateMedia(id);

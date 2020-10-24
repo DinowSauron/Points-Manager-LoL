@@ -3,12 +3,13 @@ function UpdateInfo(){
     var inicio = {
         startEmblems: document.querySelector("#pt-start input"),
         objectiveEmblems: document.querySelector("#pt-objective input"),
+        daysLeft:  document.querySelector("#days-need input"),
         totalDays: document.querySelector("#tot-days input")
     }
     var situação = {
         actualEmblems:  document.querySelector("#pt-actual input"),
+        leftEmblems:  document.querySelector("#pt-restante input"),
         media:  document.querySelector("#media-actual input"),
-        daysLeft:  document.querySelector("#days-need input"),
         victory:  document.querySelector("#victory-need input"),
         defeat:  document.querySelector("#defeat-need input")
     }
@@ -25,10 +26,11 @@ function UpdateInfo(){
 
 
     situação.actualEmblems.value = localStorage.getItem("emblems-actual");
-    situação.daysLeft.value = inicio.totalDays.value - lapsedDays;
+    inicio.daysLeft.value = inicio.totalDays.value - lapsedDays;
 
-    var emblemsNeed = inicio.objectiveEmblems.value - situação.actualEmblems.value;
-    situação.media.value = parseInt(emblemsNeed / situação.daysLeft.value);
+
+    situação.leftEmblems.value = inicio.objectiveEmblems.value - situação.actualEmblems.value;
+    situação.media.value = parseInt(situação.leftEmblems.value / inicio.daysLeft.value);
     situação.victory.value = Math.ceil(situação.media.value / localStorage.getItem("victory-pts"));
     situação.defeat.value = Math.ceil(situação.media.value / localStorage.getItem("defeat-pts"));
     
