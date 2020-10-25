@@ -2,6 +2,11 @@ var headerElement = document.querySelector('header');
 var mainElement = document.querySelector('main .container');
 localStorage.setItem("emblems-actual", Number(localStorage.getItem("emblems-start")));
 
+var victorysStatus = 0
+var defeatsStatus = 0
+var vicPtsStatus = 0
+var defPtsStatus = 0
+var playedStatus = 0;
 
 
 function addDayColum(day, valuesObj){
@@ -39,6 +44,28 @@ function addDayColum(day, valuesObj){
     })
 }
 
+function getStatus(){
+    return {
+        victory: victorysStatus,
+        defeat: defeatsStatus,
+        vicPt: vicPtsStatus,
+        defPt: defPtsStatus,
+        playered: playedStatus
+    }
+}
+function CountStatus(tipo, pts){
+    if(tipo == "v"){
+        playedStatus += 1;
+        victorysStatus += 1;
+        vicPtsStatus += Number(pts);
+    }
+    if(tipo == "d"){
+        playedStatus += 1;
+        defeatsStatus += 1;
+        defPtsStatus += Number(pts);
+    }
+}
+
 function addValue({id, tipo, pts}){
     //id = "20-10-2020"
     var tableElement = document.getElementById(id);
@@ -58,6 +85,7 @@ function addValue({id, tipo, pts}){
     var inputTable = tableElement.querySelector('input');
 
 
+
     // localStorage.removeItem(id + '-val');
     if(localStorage.getItem(id + "-val")){
         var valuesSave = {value: JSON.parse(localStorage.getItem(id + "-val"))};
@@ -69,14 +97,13 @@ function addValue({id, tipo, pts}){
         type: tipo,
         pt: pts
     });
+
+
     localStorage.setItem(id + "-val", JSON.stringify(valuesSave.value));
-    // console.log(localStorage.getItem(id + "-val"))
-    
-
-
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
     totalPoints += Number(pts);
     var media = CalculateMedia(id);
+    CountStatus(tipo, pts);
 
     inputTable.value = "~" + media + " | " + (totalPoints);
     spanElement.appendChild(spanText);

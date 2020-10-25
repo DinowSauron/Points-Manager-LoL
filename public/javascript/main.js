@@ -1,7 +1,7 @@
 
 SetDefaultPoints();
 function SetDefaultPoints(){
-    var victorys = document.querySelectorAll(".victory-btn input");
+    let victorys = document.querySelectorAll(".victory-btn input");
     victorys.forEach(victory => {
         victory.value = Number(localStorage.getItem("victory-pts"))
     })
@@ -68,6 +68,7 @@ function ChangeTable(element,id, type){
 
     //dar reload nas informações
     UpdateInfo();
+    LateUpdate();
 }
 
 var dropped = false;
