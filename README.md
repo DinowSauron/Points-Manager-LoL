@@ -1,7 +1,7 @@
 # Points Of Progress (POP)
  Um projeto para gerenciar os pontos ganhos por partida em eventos do jogo League Of Legends.
  
- Projeto em progresso atualmente(23/10), muitas alterações ainda serão feitas!
+ Projeto em progresso atualmente(25/10), muitas alterações ainda serão feitas!
 
 
 Este projeto foi criado após uma necessidade do meu irmão de gerenciar seus pontos ganhos por vitorias ou derrotas, neste aplicativo você encontra um modo de gerenciar os dias e os pontos ganhos para obter uma media e saber seu progresso durante os dias, além de ser uma otima oportunidade para treinar meus conhecimentos de desenvolvimento web!
@@ -34,7 +34,7 @@ Nesta pagina temos o inicio do layout, ele ainda está em desenvolvimente e em b
 
 ### Outras informações
 
-Nesta outra secção da pagina de informações teremos detalhes sobre a situação atual, podendo se expandir no futuro, este local se obtem uma informação mais detalhada e ajustes mais precisos, como a injeção de dados em dias especificos.
+Nesta outra secção da pagina de informações teremos detalhes sobre a situação atual, podendo se expandir no futuro, este local se obtem uma informação mais detalhada e ajustes mais precisos, como a injeção de dados em dias especificos, e também infromações completas sobre as derrotas vitorias e os pontos necessario e restantes da temporada.
 
 <p>
 <img src="https://user-images.githubusercontent.com/68889180/97035884-606ee200-153d-11eb-9ecd-b39d1f6a9970.png" width=800
@@ -61,7 +61,9 @@ Nesta outra secção da pagina de informações teremos detalhes sobre a situaç
 
 # Anotações
 Este projeto demorou 4 dias para começar a ser utilizavel, e com ele tive muitos aprendizados, ele ficou melhor do que eu esperava, pois eu estou estudando esta area de front-end faz 3-4 semanas.
+
 Outro desafio deste projeto é que eu pretendia colocar no github-pages, então não teria uma forma de trabalhar com back-end, por este motivo optei por utilizar o localstorage ao invez de um banco de dados.
+
 Também optei por realizar tudo, desde o login até a visualização, em apénas uma pagina, e o motivo foi para poder fazer um fluxo mais continuo, porém acabou não dando certo...
 Uma das maiores dificuldades encontradas foi em realizar o posicionamento dos itens por css, a programação é um pouco complexa, porém já estou acostumado com isso.
 
