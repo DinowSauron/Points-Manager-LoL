@@ -76,6 +76,7 @@ Uma das maiores dificuldades encontradas foi em realizar o posicionamento dos it
 * emblems-start
 * emblems-objective
 * emblems-actual
+* bonusTot
 * consume-pts
 * victory-pts
 * defeat-pts
