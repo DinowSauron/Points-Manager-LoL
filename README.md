@@ -1,7 +1,7 @@
 # Points Of Progress (POP)
  Um projeto para gerenciar os pontos ganhos por partida em eventos do jogo League Of Legends.
  
- Projeto em progresso atualmente(25/10), muitas alterações ainda serão feitas!
+ Projeto em progresso atualmente(28/10), muitas alterações ainda serão feitas!
 
 
 Este projeto foi criado após uma necessidade do meu irmão de gerenciar seus pontos ganhos por vitorias ou derrotas, neste aplicativo você encontra um modo de gerenciar os dias e os pontos ganhos para obter uma media e saber seu progresso durante os dias, além de ser uma otima oportunidade para treinar meus conhecimentos de desenvolvimento web!
@@ -65,7 +65,8 @@ Este projeto demorou 4 dias para começar a ser utilizavel, e com ele tive muito
 Outro desafio deste projeto é que eu pretendia colocar no github-pages, então não teria uma forma de trabalhar com back-end, por este motivo optei por utilizar o localstorage ao invez de um banco de dados.
 
 Também optei por realizar tudo, desde o login até a visualização, em apénas uma pagina, e o motivo foi para poder fazer um fluxo mais continuo, porém acabou não dando certo...
-Uma das maiores dificuldades encontradas foi em realizar o posicionamento dos itens por css, a programação é um pouco complexa, porém já estou acostumado com isso.
+
+Uma das maiores dificuldades encontradas foi em realizar o posicionamento dos itens por css, a programação é um pouco complexa, porém já estou acostumado com isso, e não chegou a ser um desafio, porém eu acho que poderia ter feito um codigo mais limpo...
 
 
 ### Variaveis Salvas

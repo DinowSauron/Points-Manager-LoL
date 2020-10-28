@@ -30,8 +30,8 @@ function UpdateInfo(){
     inicio.daysLeft.value = inicio.totalDays.value - inicio.daysLapsed.value;
 
 
-    situação.leftEmblems.value = inicio.objectiveEmblems.value - situação.actualEmblems.value;
-    situação.media.value = parseInt(situação.leftEmblems.value / inicio.daysLeft.value);
+    situação.leftEmblems.value = inicio.objectiveEmblems.value - situação.actualEmblems.value - Number(localStorage.getItem("bonusTot"));
+    situação.media.value = parseInt(situação.leftEmblems.value / inicio.daysLeft.value + 1);
     situação.victory.value = Math.ceil(situação.media.value / localStorage.getItem("victory-pts"));
     situação.defeat.value = Math.ceil(situação.media.value / localStorage.getItem("defeat-pts"));
 
