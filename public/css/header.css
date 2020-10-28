@@ -75,6 +75,9 @@ input::-webkit-inner-spin-button {
 .content .header-box button#consume{
     background-color: #0a69e6;
 }
+.content .header-box button#bonus{
+    background-color: #0ad0e6;
+}
 .content .header-box button:active{
     background-color: #fff !important;
     transition: 40ms;
@@ -100,20 +103,30 @@ input::-webkit-inner-spin-button {
 
 .group .header-box{
     width: 380px;
-    height: 135px;
+    height: 190px;
     border-radius: 0;
     background: none;
     top: 0px;
     margin-bottom: 8px;
 }
+
 .group .header-box .buttons div.consume-btn{
     position: absolute;
     width: 92%;
     top: 70px;
 }
-.group .header-box .buttons div.consume-btn button{
+.group .header-box .buttons div.consume-btn button,
+.group .header-box .buttons div.bonus-btn button{
     width: 350px;
 }
-.group .header-box .buttons div.consume-btn input{
+.group .header-box .buttons div.consume-btn input,
+.group .header-box .buttons div.bonus-btn input{
     width: 100%;
+}
+
+
+.group .header-box .buttons div.bonus-btn{
+    position: absolute;
+    width: 92%;
+    top: 125px;
 }

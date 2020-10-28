@@ -1,6 +1,6 @@
 var headerElement = document.querySelector('header');
 var mainElement = document.querySelector('main .container');
-localStorage.setItem("emblems-actual", Number(localStorage.getItem("emblems-start")));
+localStorage.setItem("emblems-actual", Number(localStorage.getItem("emblems-start")) + (Number(localStorage.getItem("bonusTot"))));
 
 var victorysStatus = 0
 var defeatsStatus = 0
@@ -73,6 +73,7 @@ function addValue({id, tipo, pts}){
     var spanElement = document.createElement("span");
     var sectionText = document.createTextNode(tipo.toUpperCase());
     var spanText = document.createTextNode(" " + pts);
+    spanElement.appendChild(spanText);
     var imgElement = document.createElement("img");
 
     var valuesTable = tableElement.querySelectorAll('section');
@@ -92,29 +93,35 @@ function addValue({id, tipo, pts}){
     }else{
         var valuesSave = {value: []}
     }
-    // console.log(valuesTable.length)
+
     valuesSave.value.push({
         type: tipo,
         pt: pts
     });
 
 
+
+    if(tipo != "b"){ //insert Normals
+        totalPoints += Number(pts);
+        var media = CalculateMedia(id);
+        inputTable.value = "~" + media + " | " + (totalPoints);
+        stateDay = totalPoints < media ? "lower" : "highter";
+        inputTable.setAttribute("class", stateDay)
+    }else{
+        pts = 0;
+    }
+
     localStorage.setItem(id + "-val", JSON.stringify(valuesSave.value));
     localStorage.setItem("emblems-actual", GetEmblems() + Number(pts));
-    totalPoints += Number(pts);
-    var media = CalculateMedia(id);
+    
     CountStatus(tipo, pts);
 
-    inputTable.value = "~" + media + " | " + (totalPoints);
-    spanElement.appendChild(spanText);
     imgElement.setAttribute("src", "./public/pictures/cross.png")
     imgElement.setAttribute("class", "delete-value")
     imgElement.setAttribute("onclick", `removeValue("${id}", ${(valuesSave.value.length - 1)})`)
     sectionElement.setAttribute('class', tipo);
     sectionElement.appendChild(imgElement);
 
-    stateDay = totalPoints < media ? "lower" : "highter";
-    inputTable.setAttribute("class", stateDay)
     sectionElement.appendChild(sectionText);
     sectionElement.appendChild(spanElement);
 
@@ -123,9 +130,16 @@ function addValue({id, tipo, pts}){
 
 function removeValue(id, indexValue){
     var valuesSave = {value: JSON.parse(localStorage.getItem(id + "-val"))};
+    console.log()
+    if(valuesSave.value[indexValue].type == "b"){ //remover o bonus
+        var tot = Number(localStorage.getItem("bonusTot"))
+        localStorage.setItem("bonusTot", tot - Number(valuesSave.value[indexValue].pt))
+        console.log(localStorage.getItem("bonusTot"))
+    }
+
     valuesSave.value.splice(indexValue, 1);
     localStorage.setItem(id + '-val', JSON.stringify(valuesSave.value));
-    document.location.reload(true);
+    document.location.reload();
 }
 
 
@@ -139,9 +153,9 @@ function CalculateMedia(id){
     var startDay = new Date(localStorage.getItem("date-start"));
     var today = new Date(id.split("-")[2] + "-" + (id.split("-")[1]) + "-" + id.split("-")[0]);
 
-    lapsedDays = parseInt((today.getTime() - startDay.getTime()) / (1000 * 3600 * 24)) + 1
-    // console.log(lapsedDays);
-    return parseInt((Number(localStorage.getItem("emblems-objective")) - 
+    lapsedDays = parseInt((today.getTime() - startDay.getTime()) / (1000 * 3600 * 24)) + 1;
+    // console.log(lapsedDays); 
+    return parseInt((Number(localStorage.getItem("emblems-objective")) -
     (Number(localStorage.getItem("emblems-actual")))) / (days - lapsedDays))
 }
 function GetTodayBr(){
@@ -170,7 +184,7 @@ function GenerateTable(){
     // console.log(daySettings.media);
     
     var lapsedCount = 0;
-    for (var i = 0; i < days; i++) {
+    for (var i = 0; i <= days; i++) {
         var otherDay = new Date(ano, mes - 1, dia + i);
         var thisDay = new Date();
 
@@ -186,6 +200,8 @@ function GenerateTable(){
         addDayColum(dateToString(otherDay),daySettings);
         // localStorage.removeItem(dateToString(outroDia) + '-val');
     }
+    localStorage.setItem("emblems-actual", Number(localStorage.getItem("emblems-actual")) - (Number(localStorage.getItem("bonusTot"))));
+
     function dateToString(d) {
         return [ d.getDate(), d.getMonth() + 1, d.getFullYear()].map(d => d > 9 ? d : '0' + d).join('-');
     }

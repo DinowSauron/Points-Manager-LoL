@@ -13,6 +13,10 @@ function SetDefaultPoints(){
     consumes.forEach(consume => {
         consume.value = Number(localStorage.getItem("consume-pts"))
     })
+    var bonuses = document.querySelectorAll(".bonus-btn input");
+    bonuses.forEach(bonuses => {
+        bonuses.value = Number(localStorage.getItem("bonus-pts"))
+    })
 
     const d =  new Date();
     var dateElement = document.querySelector("#date-inject input");
@@ -41,6 +45,12 @@ function ChangeTable(element,id, type){
         localStorage.setItem("defeat-pts", ptns)
     if(type == "c")
         localStorage.setItem("consume-pts", ptns)
+    if(type == "b"){
+        localStorage.setItem("bonus-pts", ptns)
+        var tot = Number(localStorage.getItem("bonusTot"))
+        localStorage.setItem("bonusTot", Number(ptns) + tot)
+        console.log(localStorage.getItem("bonusTot"))
+    }
     
 
     if(!id){

@@ -65,6 +65,9 @@ header span{
 .container .sector .c{
     background-color: rgb(53, 112, 221);
 }
+.container .sector .b{
+    background-color: rgb(7, 245, 253);
+}
 
 .container .sector input.lower{
     background-color: #ff6060;
