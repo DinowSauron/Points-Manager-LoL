@@ -26,12 +26,13 @@ function UpdateInfo(){
 
 
 
-    situação.actualEmblems.value = localStorage.getItem("emblems-actual");
+    situação.actualEmblems.value = Number(localStorage.getItem("emblems-actual"));
     inicio.daysLeft.value = inicio.totalDays.value - inicio.daysLapsed.value;
 
-
-    situação.leftEmblems.value = inicio.objectiveEmblems.value - situação.actualEmblems.value - Number(localStorage.getItem("bonusTot"));
-    situação.media.value = parseInt(situação.leftEmblems.value / inicio.daysLeft.value + 1);
+    
+    situação.leftEmblems.value = inicio.objectiveEmblems.value - (Number(situação.actualEmblems.value) + Number(localStorage.getItem("bonusTot")));
+    // console.log(Number(situação.actualEmblems.value) + Number(localStorage.getItem("bonusTot")))
+    situação.media.value = parseInt(situação.leftEmblems.value / (Number(inicio.daysLeft.value) ));
     situação.victory.value = Math.ceil(situação.media.value / localStorage.getItem("victory-pts"));
     situação.defeat.value = Math.ceil(situação.media.value / localStorage.getItem("defeat-pts"));
 

@@ -88,12 +88,12 @@
                         <div class="victory-btn">
                             <button id="victory" onclick="ChangeTable(event,'','v')"> Vitoria
                             </button>
-                            <input type="number" placeholder="Pt">
+                            <input type="number" placeholder="Pt" onchange="SaveValues(event, 'v')">
                         </div>
                         <div class="defeat-btn">
                             <button id="defeat" onclick="ChangeTable(event,'','d')"> Derrota
                             </button>
-                            <input type="number" placeholder="Pt">
+                            <input type="number" placeholder="Pt" onchange="SaveValues(event, 'd')">
                         </div>
                     </div>
                 </div>
@@ -174,22 +174,22 @@
                                 <div class="victory-btn">
                                     <button id="victory" onclick="InjectValue(event, 'v')"> Vitoria
                                     </button>
-                                    <input type="number" placeholder="Pt">
+                                    <input type="number" placeholder="Pt" onchange="SaveValues(event, 'v')">
                                 </div>
                                 <div class="defeat-btn">
                                     <button id="defeat" onclick="InjectValue(event, 'd')"> Derrota
                                     </button>
-                                    <input type="number" placeholder="Pt">
+                                    <input type="number" placeholder="Pt" onchange="SaveValues(event, 'd')">
                                 </div>
                                 <div class="consume-btn">
                                     <button id="consume" onclick="InjectValue(event, 'c')"> Consumir
                                     </button>
-                                    <input type="number" placeholder="Pts">
+                                    <input type="number" placeholder="Pts" onchange="SaveValues(event, 'c')">
                                 </div>
                                 <div class="bonus-btn">
                                     <button id="bonus" onclick="InjectValue(event, 'b')"> Bonus
                                     </button>
-                                    <input type="number" placeholder="Pts">
+                                    <input type="number" placeholder="Pts" onchange="SaveValues(event, 'b')">
                                 </div>
                             </div>
                         </div>

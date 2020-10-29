@@ -39,17 +39,10 @@ function InjectValue(element, type){
 
 function ChangeTable(element,id, type){
     var ptns = element.target.parentElement.querySelector("input").value;
-    if(type == "v")
-        localStorage.setItem("victory-pts", ptns)
-    if(type == "d")
-        localStorage.setItem("defeat-pts", ptns)
-    if(type == "c")
-        localStorage.setItem("consume-pts", ptns)
+    SaveValues(element, type);
     if(type == "b"){
-        localStorage.setItem("bonus-pts", ptns)
-        var tot = Number(localStorage.getItem("bonusTot"))
-        localStorage.setItem("bonusTot", Number(ptns) + tot)
-        console.log(localStorage.getItem("bonusTot"))
+        var tot = Number(localStorage.getItem("bonusTot"));
+        localStorage.setItem("bonusTot", Number(ptns) + tot);
     }
     
 
@@ -94,4 +87,16 @@ function FrameButton(){
         frameElement.style.height = "320px";
         buttonElement.style.transform = "Rotate(0deg)";
     }
+}
+
+function SaveValues(element, type){
+    var ptns = element.target.parentElement.querySelector("input").value;
+    if(type == "v")
+        localStorage.setItem("victory-pts", ptns)
+    if(type == "d")
+        localStorage.setItem("defeat-pts", ptns)
+    if(type == "c")
+        localStorage.setItem("consume-pts", ptns)
+    if(type == "b")
+        localStorage.setItem("bonus-pts", ptns)
 }
