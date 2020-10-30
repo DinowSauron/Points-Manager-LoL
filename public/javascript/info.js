@@ -1,5 +1,6 @@
 
 function UpdateInfo(){
+    setTimeout(LateUpdate, 500);
     var inicio = {
         startEmblems: document.querySelector("#pt-start input"),
         objectiveEmblems: document.querySelector("#pt-objective input"),
@@ -49,8 +50,12 @@ function LateUpdate(){
         defeatPts:  document.querySelector("#defeat-pts input"),
         played:  document.querySelector("#played input")
     }
-
-
+    var partidas = {
+        rest:  document.querySelector("#prt-restante input"),
+        vic:  document.querySelector("#prt-victoryneed input"),
+        def:  document.querySelector("#prt-defeatneed input"),
+        viperdef:  document.querySelector("#prt-vpd input")
+    }
     var item = document.getElementById("framespec").contentWindow.getStatus();
 
     total.victorys.value = item.victory;
@@ -59,8 +64,15 @@ function LateUpdate(){
     total.defeatPts.value = item.defPt;
     total.played.value = item.playered;
     
+
+    var totVic = Number(total.victoryPts.value) + Number(total.defeatPts.value);
+    var totPart = total.played.value;
+
+    partidas.rest.value = Math.ceil(document.querySelector("#pt-restante input").value / (totVic / totPart));
+    partidas.vic.value = Math.ceil(document.querySelector("#pt-restante input").value / localStorage.getItem("victory-pts"))
+    partidas.def.value = Math.ceil(document.querySelector("#pt-restante input").value / localStorage.getItem("defeat-pts"))
+    partidas.viperdef.value = (item.victory / item.defeat).toFixed(2) 
 }
 
 
 UpdateInfo();
-setTimeout(LateUpdate, 500);

@@ -99,4 +99,6 @@ function SaveValues(element, type){
         localStorage.setItem("consume-pts", ptns)
     if(type == "b")
         localStorage.setItem("bonus-pts", ptns)
+
+    UpdateInfo();
 }
