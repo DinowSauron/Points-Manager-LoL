@@ -20,11 +20,19 @@ function SetDefaultPoints(){
 
     const d =  new Date();
     var dateElement = document.querySelector("#date-inject input");
-    dateElement.setAttribute("value", `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`);
+    
+    dateElement.setAttribute("value", dateToStringUs(d));
     dateElement.setAttribute("min", localStorage.getItem("date-start"));
     dateElement.setAttribute("max", localStorage.getItem("date-end"));
-}
 
+    
+}
+function dateToStringUs(d) {
+    return [ d.getFullYear(), d.getMonth() + 1, d.getDate()].map(d => d > 9 ? d : '0' + d).join('-');
+}
+function dateToStringBr(d) {
+    return [ d.getDate(), d.getMonth() + 1, d.getFullYear()].map(d => d > 9 ? d : '0' + d).join('-');
+}
 
 function InjectValue(element, type){
     var idElement = document.querySelector("#date-inject input").value;
@@ -48,10 +56,7 @@ function ChangeTable(element,id, type){
 
     if(!id){
         const today =  new Date();
-        const day = today.getDate();
-        const month = today.getMonth() + 1;
-        const year = today.getFullYear();
-        id = `${day}-${month}-${year}`;
+        id = dateToStringBr(today);
     }
 
     var stateObj = {
