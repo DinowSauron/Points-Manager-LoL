@@ -22,7 +22,7 @@ function addDayColum(day, valuesObj){
     tableElement.setAttribute('id', day);
     dayUs = Number(day.split("-")[2] + day.split("-")[1] + day.split("-")[0])
         if(dayUs <= GetTodayUs().split("-").join(""))
-    inpElement.setAttribute("class", "lower")
+        inpElement.setAttribute("class", "lower");
     inpElement.setAttribute("readonly","true")
     inpElement.setAttribute("value", "~" + valuesObj.media);
     tableElement.appendChild(inpElement);
@@ -163,14 +163,14 @@ function GetTodayBr(){
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
-    return `${day}-${month}-${year}`;
+    return [ day, month, year].map(d => d > 9 ? d : '0' + d).join('-');
 }
 function GetTodayUs(){
     const today =  new Date();
     const day = today.getDate();
     const month = today.getMonth() + 1;
     const year = today.getFullYear();
-    return `${year}-${month}-${day}`;
+    return [ year, month, day].map(d => d > 9 ? d : '0' + d).join('-');
 }
 
 function GenerateTable(){
