@@ -15,11 +15,23 @@ function UpdateInfo(){
         victory:  document.querySelector("#victory-need input"),
         defeat:  document.querySelector("#defeat-need input")
     }
+    var reset = {
+        fimDate: document.querySelector("#date-end input"),
+        objEmblem: document.querySelector("#obj-emblem input")
+    }
     startDay = new Date(localStorage.getItem("date-start"))
     today =  new Date();
     inicio.daysLapsed.value  = parseInt((today.getTime() - startDay.getTime()) / (1000 * 3600 * 24)) + 1;
-   
 
+    frame = document.getElementById("framespec");
+    frame.onload = () => {
+        if(inicio.daysLapsed.value > 12){
+            frame.contentWindow.scrollTo(88 * (inicio.daysLapsed.value - 11),0);
+        }
+    };
+    
+    reset.fimDate.setAttribute("min", dateToStringUs(today));
+    reset.objEmblem.value = 0;
 
     inicio.startEmblems.value = localStorage.getItem("emblems-start");
     inicio.objectiveEmblems.value = localStorage.getItem("emblems-objective");
@@ -36,7 +48,7 @@ function UpdateInfo(){
     situação.media.value = parseInt(situação.leftEmblems.value / (Number(inicio.daysLeft.value) ));
     situação.victory.value = Math.ceil(situação.media.value / localStorage.getItem("victory-pts"));
     situação.defeat.value = Math.ceil(situação.media.value / localStorage.getItem("defeat-pts"));
-
+   
     
     
     UpdateOptions()

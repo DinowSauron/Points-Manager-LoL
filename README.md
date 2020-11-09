@@ -33,6 +33,7 @@ Nesta pagina temos o inicio do layout, ele ainda está em desenvolvimente e em b
 ### Outras informações
 
 Nesta outra secção da pagina de informações teremos detalhes sobre a situação atual, podendo se expandir no futuro, este local se obtem uma informação mais detalhada e ajustes mais precisos, como a injeção de dados em dias especificos, e também infromações completas sobre as derrotas vitorias e os pontos necessario e restantes da temporada.
+E por ultimo, se necessário, você pode extender a data e mudar seu objetivo atual! assim você não perde seu status ou se colocou a data errada, ainda da tempo de consertar!
 
 <p>
 <img src="https://user-images.githubusercontent.com/68889180/97035884-606ee200-153d-11eb-9ecd-b39d1f6a9970.png" width=800

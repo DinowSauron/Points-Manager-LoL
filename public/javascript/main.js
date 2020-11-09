@@ -67,13 +67,12 @@ function ChangeTable(element,id, type){
         media: 4
     }
     var frameElement = document.getElementById("framespec");
-
+    
     //pegar uma função do script que está no iframe
     frameElement.contentWindow.addValue(stateObj);
 
     //dar reload no iframe para recarregar os valores padrões
     frameElement.contentDocument.location.reload(true);
-
     //dar reload nas informações
     UpdateInfo();
     LateUpdate();
@@ -106,4 +105,33 @@ function SaveValues(element, type){
         localStorage.setItem("bonus-pts", ptns)
 
     UpdateInfo();
+}
+
+function RestartValues(){
+    var reset = {
+        fimDate: document.querySelector("#date-end input").value,
+        objEmblem: document.querySelector("#obj-emblem input").value
+    }
+
+    if(!reset.fimDate){
+        window.alert("Insira um data valida!!!");
+        return;
+    }
+    if(reset.objEmblem == 0){
+        if(!window.confirm("Seu novo status não haverá media, deseja continuar?")) return;
+    }
+
+    if(!window.confirm("Verifique com cuidado!!, confirme sua escolha: " + `A progressão irá ate o dia: ${reset.fimDate}(aaaa-mm-dd), com um objetivo de chegar a: ${reset.objEmblem}.`)) 
+        return;
+
+    localStorage.setItem("date-end", reset.fimDate);
+    localStorage.setItem("emblems-objective", Number(reset.objEmblem));
+
+    dateStart = new Date(localStorage.getItem("date-start"));
+    dateEnd = new Date(reset.fimDate);
+    var duration = dateEnd.getTime() - dateStart.getTime();
+    duration = duration / (1000 * 3600 * 24);
+    localStorage.setItem("date-duration", duration);
+
+    document.location.reload(); // faça o reload funcionar
 }

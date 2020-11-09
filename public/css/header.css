@@ -130,3 +130,26 @@ input::-webkit-inner-spin-button {
     width: 92%;
     top: 125px;
 }
+
+.confirm-btn button{
+    width: 100%;
+    height: 40px;
+    margin-top: 8px;
+    background-color: #0cc70c;
+    border: none;
+    border: 2px solid #b48e41;
+    border-radius: 10px;
+    
+    font-family: 'Vollkorn', serif;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 18px;
+    color: #fff;
+
+    outline: none;
+    transition: 300ms;
+    cursor: pointer;
+}
+.confirm-btn button:hover{
+    background-color: #4bff4b;
+}

@@ -172,7 +172,6 @@ function GetTodayUs(){
     const year = today.getFullYear();
     return [ year, month, day].map(d => d > 9 ? d : '0' + d).join('-');
 }
-
 function GenerateTable(){
     var hoje = localStorage.getItem("date-start").split("-")
     var ano = Number(hoje[0])
@@ -191,10 +190,9 @@ function GenerateTable(){
         lapsedDays = parseInt((otherDay.getTime() - thisDay.getTime()) / (1000 * 3600 * 24))
         lapsedCount = lapsedDays <= 0 ? lapsedCount += 1 : lapsedCount;
 
-        // console.log(otherDay)
         daySettings = {
             total: 0,
-            media: parseInt((Number(localStorage.getItem("emblems-objective")) - Number(localStorage.getItem("emblems-actual"))) / (days - lapsedCount)),
+            media: parseInt((Number(localStorage.getItem("emblems-objective")) - Number(localStorage.getItem("emblems-actual"))) / (days - lapsedCount)) || "End",
             values: JSON.parse(localStorage.getItem(dateToString(otherDay) + "-val"))
         }
         addDayColum(dateToString(otherDay),daySettings);
